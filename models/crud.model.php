@@ -58,7 +58,6 @@ class CrudMdl
     static public function insert($tabla, $campos, $datos)
     {
         $c = Conexion::conectar();
-        $tabla = $tabla;
 
         $sql = "INSERT INTO $tabla ";
         $fields = implode(', ', $campos);
@@ -81,7 +80,6 @@ class CrudMdl
 
         $c = Conexion::conectar();
         $sql = "UPDATE $tabla SET ";
-
 
         foreach ($datos as $campo => $value) {
             $sql .= "$campo = '$value', ";

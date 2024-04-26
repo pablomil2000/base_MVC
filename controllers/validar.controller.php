@@ -4,9 +4,11 @@ class Validar
 {
     static public function vlt_String($str)
     {
-        if ($str != '') {
-            $str = trim(htmlspecialchars(filter_var($str, FILTER_SANITIZE_STRING)));
-            return $str;
+        if (preg_match('/^[a-zA-Z0-9]*$/', $str)) {
+            if ($str != '') {
+                $str = trim(htmlspecialchars(filter_var($str, FILTER_SANITIZE_STRING)));
+                return $str;
+            }
         }
         return false;
     }
