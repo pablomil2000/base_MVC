@@ -1,0 +1,1 @@
+<a href="<?= RutaCtrl::url('home') ?>"> home</a>
