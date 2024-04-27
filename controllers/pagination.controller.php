@@ -98,4 +98,20 @@ class Pagination extends CrudCtrl
 
         return $this->page + 2;
     }
+
+    /**
+     * Returns the pagination links.
+     *
+     * @return string The pagination links.
+     */
+    public function getPagination()
+    {
+        $html = '';
+        $html .= '<li class="page-item"><a class="page-link" href="?page=' . $this->previus() . '">Previous</a></li>';
+        for ($i = 0; $i < $this->numPages; $i++) {
+            $html .= '<li class="page-item"><a class="page-link" href="?page=' . ($i + 1) . '">' . ($i + 1) . '</a></li>';
+        }
+        $html .= '<li class="page-item"><a class="page-link" href="?page=' . $this->next() . '">Next</a></li>';
+        return $html;
+    }
 }
